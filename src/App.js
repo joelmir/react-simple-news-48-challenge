@@ -1,24 +1,17 @@
-import React, { Component } from 'react';
-import News from './components/news/News'
+import React from 'react'
+import { HashRouter, Route } from "react-router-dom"
+import Home from './views/Home'
+import Contact from './views/Contact'
 
-class App extends Component {
-    constructor() {
-        super()
-        this.state = {
-            news: [
-                {'title': "My first news", 'body':"This is the body of my first news"},
-                {'title': "My news number too", 'body':"This is the news to check if this list work fine"}
-            ]
-        }
-    }
-
-    render() {
-        return (
+const App = () => {
+    return(
+        <HashRouter>
             <div>
-                {this.state.news.map(news_item => <News title={news_item.title} body={news_item.body}/>)} 
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/contact" component={Contact}/>
             </div>
-        );
-    }
+        </HashRouter>
+    );
 }
 
-export default App;
+export default App
