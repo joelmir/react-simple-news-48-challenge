@@ -1,28 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import News from './components/news/News'
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    constructor() {
+        super()
+        this.state = {
+            news: [
+                {'title': "My first news", 'body':"This is the body of my first news"},
+                {'title': "My news number too", 'body':"This is the news to check if this list work fine"}
+            ]
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                {this.state.news.map(news_item => <News title={news_item.title} body={news_item.body}/>)} 
+            </div>
+        );
+    }
 }
 
 export default App;
